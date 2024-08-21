@@ -12,7 +12,6 @@ nav{
   align-items: center;
   height: 3rem;
   color: var(--white);
-  background-image: linear-gradient(to bottom, black, blue, black);
 }
 
 #canvas-component{
@@ -24,7 +23,17 @@ nav{
 }
 
 #canvas-area{
-  height: calc(100% - 2rem);
-  width: calc(100% - 2rem);
+  height: 400pt;
+  width: 400pt;
   background-color: var(--white);
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 4pt); /* Adjusts the columns to fit the container */
+  grid-auto-rows: 4pt; /* Each row will have a height of 4pt */
+  gap: 0; /* No gap between the pixels */
+}
+
+.pixel{
+  height: 4pt;
+  width: 4pt;
+  border: thin solid var(--black);
 }
