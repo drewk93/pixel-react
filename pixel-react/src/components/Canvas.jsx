@@ -4,20 +4,38 @@
  
  const Canvas = () => {
 
-    const colors = ['black']
-    const [currentColor, setCurrentColor] = useState(colors[0]);
-    const [pixelCount, setPixelCount] = useState(1000);
-    const [rowCount, setRowCount] = useState(140)
-    const colorPixel = (currentColor) => {
-        
+    
+    const [mouseDown, setMouseDown] = useState(false);
+    const [selectedColor, setSelectedColor] = useState('black');
+    const [pixelCount, setPixelCount] = useState(100);
+    const [rowCount, setRowCount] = useState(100)
+
+    const _mouseUp = () => {
+        setMouseDown(false);
     }
 
+    const _mouseDown = (e) => {
+        setMouseDown(true);
+        changeColor(e)
+    }
+    
+    const _mouseOver = (e) => {
+        if (mouseDown) {
+            changeColor(e);
+        }
+    }
 
+    const changeColor = (e) => {
+        const _isPixel = (element) => element.classList.contains('pixel');
+        if(mouseDown && _isPixel(e.target)){
+            e.target.style.background = 'black';
+        }
+    }
 
     return (
         <section id="canvas-component">
             <div id="canvas-area">
-                <PixelRow rowCount={rowCount} pixelCount={pixelCount}/>
+                <PixelRow rowCount={rowCount} pixelCount={pixelCount} _mouseUp={_mouseUp} _mouseDown={_mouseDown} _mouseOver={_mouseOver} changeColor={changeColor}/>
             </div>
         </section>
     )

@@ -1,33 +1,28 @@
 import React, { useState } from 'react';
 
-const Pixels = ({ pixelCount }) => {
+const Pixels = props => {
+
+    const [mouseDown, setMouseDown] = useState(false);
     // Create an array with pixelData number of elements and initial color for each pixel
-    const initialColors = Array.from({ length: pixelCount }, () => 'white');
-    const [colors, setColors] = useState(initialColors);
+    const {
+        pixelCount,
+        _mouseUp,
+        _mouseDown,
+        _mouseOver,
+        changeColor
+    } = props;
 
-    // Handle click event to change the color of the clicked pixel
-    const handleClick = (index) => {
-        // Create a new colors array with the updated color for the clicked pixel
-        const newColors = [...colors];
-        newColors[index] = 'black'; // Change color to black on click
-        setColors(newColors);
+   
 
-        // Optionally, you might want to update pixelData or perform other actions here
-        // setPixelData(...);
-    };
 
     return (
         <>
-            {colors.map((color, index) => (
-                <div
-                    key={index}
-                    className="pixel"
-                    style={{ backgroundColor: color }} // Set background color for each pixel
-                    onClick={() => handleClick(index)} // Handle click event
-                >
-                    {/* Render content for each pixel here */}
+           {Array.from({length: pixelCount}).map((_, index) => (
+                <div className="pixel" key={index}   onMouseOver={_mouseOver}
+                onMouseDown={_mouseDown} onMouseUp={_mouseUp}>
+
                 </div>
-            ))}
+           ))}
         </>
     );
 };
