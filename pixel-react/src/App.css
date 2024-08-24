@@ -23,13 +23,19 @@ nav{
 }
 
 #canvas-area{
-  height: 400pt;
-  width: 400pt;
+  display: flex;
+  flex-direction: column;
+  height: auto;
+  width: auto;
   background-color: var(--white);
-  display: grid;
-  grid-template-columns: repeat(auto-fill, 4pt); /* Adjusts the columns to fit the container */
-  grid-auto-rows: 4pt; /* Each row will have a height of 4pt */
   gap: 0; /* No gap between the pixels */
+
+}
+
+.pixel-row{
+  height: 100%;
+  width: 100%;
+  display: flex;
 }
 
 .pixel{

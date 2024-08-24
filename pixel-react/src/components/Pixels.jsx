@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 
-const Pixels = ({ pixelData, setPixelData }) => {
+const Pixels = ({ pixelCount }) => {
     // Create an array with pixelData number of elements and initial color for each pixel
-    const initialColors = Array.from({ length: pixelData }, () => 'white');
+    const initialColors = Array.from({ length: pixelCount }, () => 'white');
     const [colors, setColors] = useState(initialColors);
 
     // Handle click event to change the color of the clicked pixel
@@ -35,7 +35,7 @@ const Pixels = ({ pixelData, setPixelData }) => {
 export default Pixels;
 
 
-//Consider using this
+// Consider using this
 
 // const MyComponent = () => {
 //   const size = 10;
