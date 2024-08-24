@@ -1,5 +1,5 @@
- import Pixels from './Pixels'
  import PixelRow from './PixelRow'
+ import ColorPicker from './ColorPicker'
  import {useState, useEffect} from 'react';
  import { AppContext } from '../context/AppContext'
  
@@ -10,6 +10,7 @@
             <div id="canvas-area">
                 <PixelRow />
             </div>
+            <ColorPicker/>
         </section>
     )
 }

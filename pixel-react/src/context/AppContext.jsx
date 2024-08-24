@@ -6,11 +6,10 @@ function AppContextProvider({children}){
 
     // State
     const [mouseDown, setMouseDown] = useState(false);
-    const [selectedColor, setSelectedColor] = useState('black');
+    const [selectedColor, setSelectedColor] = useState('#000000');
     const [pixelCount, setPixelCount] = useState(100);
     const [rowCount, setRowCount] = useState(100);
 
-    
     const handleMouseUp = () => {
         setMouseDown(false);
     }
@@ -26,9 +25,11 @@ function AppContextProvider({children}){
     const changePixelColor = (e) => {
         const _isPixel = (element) => element.classList.contains('pixel');
         if(mouseDown && _isPixel(e.target)){
-            e.target.style.background = 'black';
+            e.target.style.background = selectedColor;
         }
     }
+
+
 
     // Functions
 
