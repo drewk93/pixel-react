@@ -1,25 +1,21 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
+import { AppContext } from '../context/AppContext'
 
 const Pixels = props => {
 
-    const [mouseDown, setMouseDown] = useState(false);
     // Create an array with pixelData number of elements and initial color for each pixel
     const {
         pixelCount,
-        _mouseUp,
-        _mouseDown,
-        _mouseOver,
-        changeColor
-    } = props;
-
+        handleMouseUp,
+        handleMouseDown,
+        handleMouseOver,
+    } = useContext(AppContext)
    
-
-
     return (
         <>
            {Array.from({length: pixelCount}).map((_, index) => (
-                <div className="pixel" key={index}   onMouseOver={_mouseOver}
-                onMouseDown={_mouseDown} onMouseUp={_mouseUp}>
+                <div className="pixel" key={index}   onMouseOver={handleMouseOver}
+                onMouseDown={handleMouseDown} onMouseUp={handleMouseUp}>
 
                 </div>
            ))}
